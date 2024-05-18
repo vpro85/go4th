@@ -19,6 +19,9 @@ func main() {
 		return
 	}
 	defer f.Close()
-	iLog := log.New(f, "iLog ", log.LstdFlags)
+	LstdFlags := log.Ldate | log.Lshortfile
+	iLog := log.New(f, "LNum ", LstdFlags)
 	iLog.Println("Hello there!")
+	iLog.SetFlags(log.Lshortfile | log.LstdFlags)
+	iLog.Println("Another log entry!")
 }
